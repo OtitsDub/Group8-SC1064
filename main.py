@@ -206,3 +206,7 @@ Users:       users, logout
 
 if __name__ == "__main__":
     MiniOS().start()
+    try:
+        input("\nPress Enter to close...")
+    except EOFError:
+        pass
