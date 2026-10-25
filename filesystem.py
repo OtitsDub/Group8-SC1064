@@ -11,10 +11,10 @@ class FileSystem:
     def __init__(self, disk_file="minios_disk.json"):
         self.disk_file = disk_file
         self.root = {"type": "dir", "children": {}}
-        self.cwd = []                      # current directory as list of names
+        self.cwd = []                     
         self._load()
 
-    # ---------- persistence ----------
+    # persistence
     def _load(self):
         if os.path.exists(self.disk_file):
             try:
@@ -34,7 +34,7 @@ class FileSystem:
         except OSError:
             pass
 
-    # ---------- path helpers ----------
+    # pathhelpers
     def _normalize(self, path):
         parts = [] if path.startswith("/") else list(self.cwd)
         for p in path.split("/"):
@@ -64,7 +64,7 @@ class FileSystem:
             raise FileSystemError("Path does not exist.")
         return parent, parts[-1]
 
-    # ---------- commands ----------
+    # commands
     def pwd(self):
         return "/" + "/".join(self.cwd)
 
