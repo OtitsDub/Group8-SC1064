@@ -70,7 +70,7 @@ class MiniOS:
             handler(args)
         except (FileSystemError, ProcessError, MemoryError_) as err:
             print(f"Error: {err}\n")
-        except Exception as err:                     # last-resort safety net
+        except Exception as err:                     
             print(f"Error: Something went wrong ({err}).\n")
 
     @staticmethod
@@ -173,7 +173,7 @@ Users:       users, logout
     def cmd_pwd(self, args):
         print(self.fs.pwd() + "\n")
 
-    # ---------- processes ----------
+    # processes nadi
     def cmd_process(self, args):
         procs = self.procs.list()
         if not procs:
@@ -192,7 +192,7 @@ Users:       users, logout
         self.need(args, 1, "kill <pid>")
         pid = self.procs.kill(args[0]); print(f"Process {pid} terminated.\n")
 
-    # memory
+    # kag memory
     def cmd_memory(self, args):
         print("\n" + self.mem.status() + "\n")
 
