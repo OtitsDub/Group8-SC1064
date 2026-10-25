@@ -6,7 +6,7 @@ class MemoryError_(Exception):
 class MemoryManager:
     def __init__(self, total=1024, system_reserved=256):
         self.total = total
-        self.system_reserved = system_reserved   # always used by the "kernel"
+        self.system_reserved = system_reserved   
         self.user_allocated = 0
 
     @property
