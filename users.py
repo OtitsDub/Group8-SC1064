@@ -9,7 +9,7 @@ def _hash(password):
 
 class UserManager:
     def __init__(self):
-        # username -> {"hash": ..., "role": ...}
+        # Username nisa ang hash tapos role label
         self.accounts = {
             "admin":   {"hash": _hash("admin123"),   "role": "Administrator"},
             "student": {"hash": _hash("student123"), "role": "Standard User"},
@@ -35,7 +35,7 @@ class UserManager:
 def read_password(prompt="Password: "):
     """Show * while typing on Windows CMD; fall back to getpass elsewhere."""
     try:
-        import msvcrt  # Windows only
+        import msvcrt  #Win
     except ImportError:
         return getpass.getpass(prompt)
     sys.stdout.write(prompt)
