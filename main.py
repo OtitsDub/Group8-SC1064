@@ -31,7 +31,7 @@ class MiniOS:
             "history": self.cmd_history, "echo": self.cmd_echo, "version": self.cmd_version,
         }
 
-    # ---------- shell ----------
+    # shell
     def banner(self):
         print("=" * 40)
         print(f"{OS_NAME.upper() + ' v' + VERSION:^40}")
@@ -78,7 +78,7 @@ class MiniOS:
         if len(args) < n:
             raise FileSystemError(f"Missing argument. Usage: {usage}")
 
-    # ---------- general ----------
+    # general
     def cmd_help(self, args):
         print("""
 Available Commands:
@@ -121,7 +121,7 @@ Users:       users, logout
         print("\nShutting down MiniOS...\n\nGoodbye!")
         self.running = False
 
-    # ---------- users ----------
+    # users
     def cmd_users(self, args):
         print(f"{'USERNAME':<12}ROLE")
         for u, r in self.users.list_users():
@@ -132,7 +132,7 @@ Users:       users, logout
         print(f"\nUser '{self.users.current_user}' logged out.\n")
         self.users.logout()
 
-    # ---------- files ----------
+    # files
     def cmd_dir(self, args):
         print(f"\nDirectory of {self.fs.pwd()}\n")
         items = self.fs.list_dir()
@@ -192,7 +192,7 @@ Users:       users, logout
         self.need(args, 1, "kill <pid>")
         pid = self.procs.kill(args[0]); print(f"Process {pid} terminated.\n")
 
-    # ---------- memory ----------
+    # memory
     def cmd_memory(self, args):
         print("\n" + self.mem.status() + "\n")
 
